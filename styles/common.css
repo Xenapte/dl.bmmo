@@ -9,12 +9,12 @@ html {
 }
 body {max-width: 920px; margin: 0 auto 2em}
 
-h2, h3, h4, p, ul, li {margin-top: 0.72em; margin-bottom: 0.48em}
+h2, h3, h4, p, ul, li {margin-top: 0.64em; margin-bottom: 0.48em; line-height: 140%}
 h3 {border-bottom: 2px solid rgba(32, 32, 32, 0.12); padding: 2px; margin-left: -2px; margin-right: 5%}
 
 code {
-  font: 1em "SF Mono", Menlo, "Noto Sans Mono", "Roboto Mono", Consolas, "Liberation Mono", monospace;
-  padding: 2px 5px;
+  font: 0.9em "SF Mono", Menlo, "Noto Sans Mono", "Roboto Mono", Consolas, "Liberation Mono", monospace;
+  padding: 1.2px 3px;
   margin: 2px;
   background: rgba(254, 254, 254, 0.64);
   border: 1px solid rgba(32, 32, 32, 0.16);

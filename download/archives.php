@@ -12,7 +12,7 @@
 <body>
   <h2>Ballance Massive Multiplayer Online - Release Archives</h2>
   <h3>About</h3>
-  <p>This page provides older releases of BMMO client mods. They are here for purely informational purposes; only the latest version is supported. For older server executables, please refer to <a href="https://github.com/Swung0x48/BallanceMMO/actions">GitHub Actions</a>.</p>
+  <p>This page provides older releases of BMMO client mods. They are here for purely archival purposes; only the latest version is supported. For older server executables, please refer to <a href="https://github.com/Swung0x48/BallanceMMO/actions">GitHub Actions</a>.</p>
   <h3>List</h3>
   <table id="version-list" class="colored">
     <tr><th>Version</th><th>Time</th><th>Downloads</th></tr>
