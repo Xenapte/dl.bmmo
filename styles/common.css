@@ -1,0 +1,56 @@
+* {box-sizing: border-box}
+html {
+  background: #f7f7f7;
+  background: linear-gradient(140deg, #e6e6e6 2%, #fafafa 40%, #e5e5e5 80%); 
+  background-attachment: fixed;
+  height: 100%; 
+  overflow: auto;
+  padding: 16px 12px;
+}
+body {max-width: 920px; margin: 0 auto 2em}
+
+h2, h3, h4, p, ul, li {margin-top: 0.72em; margin-bottom: 0.48em}
+h3 {border-bottom: 2px solid rgba(32, 32, 32, 0.12); padding: 2px; margin-left: -2px; margin-right: 5%}
+
+code {
+  font: 1em "SF Mono", Menlo, "Noto Sans Mono", "Roboto Mono", Consolas, "Liberation Mono", monospace;
+  padding: 2px 5px;
+  margin: 2px;
+  background: rgba(254, 254, 254, 0.64);
+  border: 1px solid rgba(32, 32, 32, 0.16);
+  box-shadow: 0 2px 4px #0001, 0 1.2px 2.4px #0001;
+}
+
+.smaller {font-size: 88%}
+
+table {
+  border-collapse: collapse;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.12), 0 2px 5px rgba(0, 0, 0, 0.24);
+  font-size: 96%;
+}
+
+th, td {padding: 0.5em 0.8em}
+/* td:last-child {text-align: right} */
+th {min-width: 4em; text-align: left}
+
+table.colored tr:nth-child(odd) {background: #e2e2e2}
+table.colored tr:nth-child(even) {background: #f3f3f3}
+table.colored tr:first-child {background: #d4d4d4}
+
+ul {padding-left: 2em}
+
+a {text-decoration-style: dotted}
+a:link {color: rgb(42, 99, 168)}
+a:visited {color: rgb(7, 76, 116)}
+a:hover {text-decoration-style: solid}
+
+#changelogs ul {font-size: 96%}
+#changelogs ul p {font-weight: bold}
+
+footer {
+  margin-top: 1em;
+  padding: 0.2em 2px 0;
+  border-top: 2px solid rgba(32, 32, 32, 0.16);
+  font-size: 98%;
+  margin-right: 5%;
+}

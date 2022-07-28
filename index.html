@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ballance Massive Multiplayer Online - Download</title>
+  <link rel="stylesheet" href="styles/common.css">
+  <style>
+    #center-img-wrapper {text-align: center}
+    #center-img-wrapper img {width: 60%; max-width: 96px; height: auto}
+  </style>
+</head>
+<body>
+  <h2>Ballance Massive Multiplayer Online - Download Site</h2>
+  <h3>About</h3>
+  <p id="center-img-wrapper"><img src="bmmo.svg" alt="BMMO Icon"></p>
+  <p>Ballance Massive Multiplayer Online (BallanceMMO / BMMO) Mod lets you play Ballance multiplayer, together with your friends. Made by <a href="https://github.com/Swung0x48">Swung0x48</a> and <a href="https://github.com/Xenapte">BallanceBug</a>.</p>
+  <p>Github source: <a href="https://github.com/Swung0x48/BallanceMMO">Swung0x48/BallanceMMO</a></p>
+  <h3>Download</h3>
+  <ul>
+    <li>
+      <h4>Client Mod Package</h4>
+      <p class="smaller">Requires Windows 7+ and <a href="https://github.com/Gamepiaynmo/BallanceModLoader">Ballance Mod Loader</a> 0.3.42 (<a href="files/BML-0.3.42.zip"><b>download</b></a>). <b>If you don't know which version to choose, just select and download the standalone package.</b></p>
+      <p id="latest-version" class="smaller"></p>
+      <ul>
+        <li><a href="download/standalone"><b>Download Standalone Package</b></a> (all dependencies included)</li>
+        <li><a href="download/latest">Download only the mod itself</a> (for experienced users)</li>
+        <li><a href="download/archives">Download older archives</a> (unsupported)</li>
+      </ul>
+    </li>
+    <li>
+      <h4>Server Executable</h4>
+      <p class="smaller">Requires Windows 10+ or Linux. Other platforms may also be supported but you have to build the executables yourself.</p>
+      <ul>
+        <li><a href="https://github.com/Swung0x48/BallanceMMO/actions">Download artifacts from GitHub Actions</a></li>
+      </ul>
+    </li>
+  </ul>
+  <h3>Changelogs</h3>
+  <div id="changelogs"></div>
+  <footer>
+    <p><cite>Website (<a href="https://github.com/Xenapte/dl.bmmo">source code</a>) created by BallanceBug on 2022-07-28.</cite></p>
+  </footer>
+  <script>
+    function getTime(timeExp) {
+      let time, month, date, hour, minute, second,
+          fullDate, fullTime;
+      time = new Date(timeExp);
+      month = time.getMonth() + 1;
+      date = time.getDate();
+      hour = time.getHours();
+      minute = time.getMinutes();
+      second = time.getSeconds();
+      if (month < 10) {month = "0" + month};
+      if (date < 10) {date = "0" + date};
+      if (hour < 10) {hour = "0" + hour};
+      if (minute < 10) {minute = "0" + minute};
+      if (second < 10) {second = "0" + second};
+    
+      fullDate = time.getFullYear() + "-" + month + "-" + date;
+      fullTime = hour + ":" + minute + ":" + second;
+      return fullDate + " " + fullTime;
+    }
+
+    function init() {
+      fetch("download/latest?version-only=true")
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById("latest-version").innerHTML = `Latest version: ${data["version"]} (${getTime(data["time"] * 1000)})`;
+        });
+      fetch("changelogs.json")
+        .then(res => res.json())
+        .then(data => {
+          let topList = document.createElement("ul");
+          Array.from(data).forEach(e => {
+            let item = document.createElement("li");
+            let dataStr = "";
+            Array.from(e.content).forEach(line => {
+              dataStr += `<li>${line}</li>`;
+            });
+            item.innerHTML = `<p>${e.version} (${e.time})</p><ul>${dataStr}</ul>`;
+            topList.appendChild(item);
+          });
+          document.getElementById("changelogs").appendChild(topList);
+        });
+    };
+
+    init();
+  </script>
+</body>
+</html>

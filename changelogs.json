@@ -1,0 +1,17 @@
+[
+  {
+    "version": "3.2.11-beta15",
+    "time": "2022-07-28",
+    "content": [
+      "New: validity of client Balls.nmo is checked after logging in and server now displays installed mods of clients.",
+      "Fix: multi-line output now displays correctly in the console."
+    ]
+  },
+  {
+    "version": "3.2.10 and older",
+    "time": "before 2022-07-27",
+    "content": [
+      "Working in progress ..."
+    ]
+  }
+]
