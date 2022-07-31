@@ -6,6 +6,7 @@ html {
   height: 100%; 
   overflow: auto;
   padding: 16px 12px;
+  font: Roboto, "Noto Sans", Arial, sans-serif;
 }
 body {max-width: 920px; margin: 0 auto 2em}
 

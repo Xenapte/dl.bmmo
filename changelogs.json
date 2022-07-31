@@ -1,5 +1,13 @@
 [
   {
+    "version": "3.2.12-beta16",
+    "time": "2022-07-31",
+    "content": [
+      "New: togglable own spirit ball (by using <code>`</code>) - can be helpful in laggy conditions.",
+      "Fix: previous unability to show some spirit paper balls."
+    ]
+  },
+  {
     "version": "3.2.11-beta15",
     "time": "2022-07-28",
     "content": [
