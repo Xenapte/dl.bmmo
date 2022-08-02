@@ -32,32 +32,12 @@
     <p><a href="../">Return to Home Page</a></p>
   </footer>
   <script>
-    function getTime(timeExp) {
-      let time, month, date, hour, minute, second,
-          fullDate, fullTime;
-      time = new Date(timeExp);
-      month = time.getMonth() + 1;
-      date = time.getDate();
-      hour = time.getHours();
-      minute = time.getMinutes();
-      second = time.getSeconds();
-      if (month < 10) {month = "0" + month};
-      if (date < 10) {date = "0" + date};
-      if (hour < 10) {hour = "0" + hour};
-      if (minute < 10) {minute = "0" + minute};
-      if (second < 10) {second = "0" + second};
-    
-      fullDate = time.getFullYear() + "-" + month + "-" + date;
-      fullTime = hour + ":" + minute + ":" + second;
-      return fullDate + " " + fullTime;
-    };
-
     function init() {
       document.getElementById("version-list")
         .querySelectorAll("tr").forEach(tr => {
           let td = tr.getElementsByTagName("td");
           if (td.length > 2)
-            td[1].innerHTML = getTime(1000 * td[1].innerHTML);
+            td[1].innerHTML = (new Date(1000 * td[1].innerHTML)).toLocaleString([], {hour12: false});
         });
     };
 

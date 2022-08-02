@@ -8,7 +8,7 @@ html {
   padding: 16px 12px;
   font: Roboto, "Noto Sans", Arial, sans-serif;
 }
-body {max-width: 920px; margin: 0 auto 2em}
+body {max-width: 880px; margin: 0 auto 2em}
 
 h2, h3, h4, p, ul, li {margin-top: 0.64em; margin-bottom: 0.48em; line-height: 140%}
 h3 {border-bottom: 2px solid rgba(32, 32, 32, 0.12); padding: 2px; margin-left: -2px; margin-right: 5%}
@@ -22,6 +22,7 @@ code {
   box-shadow: 0 2px 4px #0001, 0 1.2px 2.4px #0001;
 }
 
+.larger {font-size: 105%}
 .smaller {font-size: 88%}
 
 table {

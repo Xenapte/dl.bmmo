@@ -15,8 +15,8 @@
   <h2>Ballance Massive Multiplayer Online - Download Site</h2>
   <h3>About</h3>
   <p id="center-img-wrapper"><img src="bmmo.svg" alt="BMMO Icon"></p>
-  <p>Ballance Massive Multiplayer Online (BallanceMMO / BMMO) Mod lets you play Ballance multiplayer, together with your friends. Made by <a href="https://github.com/Swung0x48">Swung0x48</a> and <a href="https://github.com/Xenapte">BallanceBug</a>.</p>
-  <p>Github repository: <a href="https://github.com/Swung0x48/BallanceMMO"><b>Swung0x48/BallanceMMO</b></a></p>
+  <p class="larger">The Ballance multiplayer experience, finally around. Install Ballance Massive Multiplayer Online (BallanceMMO / BMMO) Mod and play, together with your friends.</p>
+  <p>Made by <a href="https://github.com/Swung0x48">Swung0x48</a> and <a href="https://github.com/Xenapte">BallanceBug</a>. Github repository: <a href="https://github.com/Swung0x48/BallanceMMO"><b>Swung0x48/BallanceMMO</b></a></p>
   <h3>Installation</h3>
   <p>For clients, make sure you have Ballance with <a href="https://github.com/Gamepiaynmo/BallanceModLoader">Ballance Mod Loader</a> installed, then download the client mod package (with dependencies), and place it into <code>(BallanceDirectory)\ModLoader\Mods\</code>. Unzipping of the package is not required but may be desired if the user wishes to download only the bare mod file.</p>
   <h3>Download</h3>
@@ -45,31 +45,11 @@
     <p><cite>Website (<a href="https://github.com/Xenapte/dl.bmmo">source code</a>) created by BallanceBug on 2022-07-28.</cite></p>
   </footer>
   <script>
-    function getTime(timeExp) {
-      let time, month, date, hour, minute, second,
-          fullDate, fullTime;
-      time = new Date(timeExp);
-      month = time.getMonth() + 1;
-      date = time.getDate();
-      hour = time.getHours();
-      minute = time.getMinutes();
-      second = time.getSeconds();
-      if (month < 10) {month = "0" + month};
-      if (date < 10) {date = "0" + date};
-      if (hour < 10) {hour = "0" + hour};
-      if (minute < 10) {minute = "0" + minute};
-      if (second < 10) {second = "0" + second};
-    
-      fullDate = time.getFullYear() + "-" + month + "-" + date;
-      fullTime = hour + ":" + minute + ":" + second;
-      return fullDate + " " + fullTime;
-    }
-
     function init() {
       fetch("download/latest?version-only=true")
         .then(res => res.json())
         .then(data => {
-          document.getElementById("latest-version").innerHTML = `Latest version: ${data["version"]} (${getTime(data["time"] * 1000)})`;
+          document.getElementById("latest-version").innerHTML = `Latest version: ${data["version"]} (${(new Date(1000 * data["time"])).toLocaleString([], {hour12: false})})`;
         });
       fetch("changelogs.json")
         .then(res => res.json())
