@@ -5,21 +5,20 @@ html {
   background-attachment: fixed;
   height: 100%; 
   overflow: auto;
-  padding: 16px 12px;
-  font: Roboto, "Noto Sans", Arial, sans-serif;
+  padding: 20px 16px;
 }
-body {max-width: 880px; margin: 0 auto 2em}
+body {max-width: 880px; margin: 0 auto 2em; font-family: Roboto, "Noto Sans", Arial, sans-serif}
 
 h2, h3, h4, p, ul, li {margin-top: 0.64em; margin-bottom: 0.48em; line-height: 140%}
 h3 {border-bottom: 2px solid rgba(32, 32, 32, 0.12); padding: 2px; margin-left: -2px; margin-right: 5%}
 
 code {
   font: 0.9em "SF Mono", Menlo, "Noto Sans Mono", "Roboto Mono", Consolas, "Liberation Mono", monospace;
-  padding: 1.2px 3px;
+  padding: 1.2px 3.6px;
   margin: 2px;
   background: rgba(254, 254, 254, 0.64);
   border: 1px solid rgba(32, 32, 32, 0.16);
-  box-shadow: 0 2px 4px #0001, 0 1.2px 2.4px #0001;
+  box-shadow: 0 2px 4px #1111, 0 1.2px 2.4px #1112;
 }
 
 .larger {font-size: 105%}
@@ -32,7 +31,6 @@ table {
 }
 
 th, td {padding: 0.5em 0.8em}
-/* td:last-child {text-align: right} */
 th {min-width: 4em; text-align: left}
 
 table.colored tr:nth-child(odd) {background: #e2e2e2}
