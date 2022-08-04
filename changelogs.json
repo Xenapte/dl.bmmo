@@ -3,7 +3,7 @@
     "version": "3.2.12-beta17",
     "time": "2022-08-04",
     "content": [
-      "Fix: optimized client ball state checks - they are now only done immediately before sending state messages (previous versions check ball states every frame, causing unneccessary performance losses).",
+      "Fix: optimized client ball state checks - they are now only done immediately before sending state messages (previous versions check ball states every frame, causing unnecessary performance losses).",
       "Change: removed <code>/kick-id</code>; use <code>/kick #<i>id</i></code> instead.",
       "New: added an option for server owners to induce fatal errors on clients."
     ]
