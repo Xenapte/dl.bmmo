@@ -1,18 +1,20 @@
 <?php
-// $filename = scandir('../files/', SCANDIR_SORT_DESCENDING)[0];
-include 'scan_dir.php';
+include 'rescan.php';
 
-$files = scan_dir('../files');
-foreach ($files as $filename) {
-  if (preg_match('/^(.+)_((?:[0-9\.]+)?(?:-(?:alpha|beta|rc)[0-9]+)?)\.bmod$/', $filename, $matches)) {
-    if (@$_GET['version-only'] == "true") {
-      header("Content-Type: application/json; charset=utf-8");
-      echo json_encode(array("version" => $matches[2], "time" => filemtime("../files/$filename")));
-    } else {
-      header("Location: ../files/$filename");
-    };
-    exit();
+$data = json_decode(file_get_contents('../files/data.json'), true);
+if (time() - @$data['generation_time'] > 14400) {
+  generate_data();
+  $data = json_decode(file_get_contents('../files/data.json'), true);
+};
+
+if (count($data['files']) < 1) {
+  echo 'Error finding latest version';
+} else {
+  if (@$_GET['version-only'] == 'true') {
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode(array('version' => $data['files'][0]['version'], 'time' => $data['files'][0]['time']));
+  } else {
+    header('Location: ../files/' . $data['files'][0]['filename']);
   };
 };
-echo "Error finding latest version";
 ?>

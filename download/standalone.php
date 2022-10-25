@@ -9,22 +9,27 @@ function generate_package($filename, $version) {
   return false;
 };
 
-include 'scan_dir.php';
+include 'rescan.php';
 
 if (isset($_GET['file'])) {
-  $files = array($_GET['file']);
+  $filename = $_GET['file'];
 } else {
-  $files = scan_dir('../files/');
+  $data = json_decode(file_get_contents('../files/data.json'), true);
+  if (time() - @$data['generation_time'] > 14400) {
+    generate_data();
+    $data = json_decode(file_get_contents('../files/data.json'), true);
+  };
+  if (count($data['files']) < 1) {
+    echo "Error generating package.";
+    exit();
+  };
+  $filename = $data['files'][0]['filename'];
 };
 
-foreach ($files as $filename) {
-  if (preg_match('/^(.+)_((?:[0-9\.]+)?(?:-(?:alpha|beta|rc)[0-9]+)?)\.bmod$/', $filename, $matches)) {
-    if (generate_package($filename, $matches[2])) {
-      header("Location: ../packages/BallanceMMO_$matches[2].zip");
-      exit();
-    } else {
-      break;
-    };
+if (preg_match('/^(.+)_((?:[0-9\.]+)?(?:-(?:alpha|beta|rc)[0-9]+)?)\.bmod$/', $filename, $matches)) {
+  if (generate_package($filename, $matches[2])) {
+    header("Location: ../packages/BallanceMMO_$matches[2].zip");
+    exit();
   };
 };
 

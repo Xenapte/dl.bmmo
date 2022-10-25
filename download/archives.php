@@ -12,19 +12,21 @@
 <body>
   <h2>Ballance Massive Multiplayer Online - Release Archives</h2>
   <h3>About</h3>
-  <p>This page provides older releases of BMMO client mods. They are here for purely archival purposes; only the latest version is supported. For older server executables, please refer to <a href="https://github.com/Swung0x48/BallanceMMO/actions">GitHub Actions</a>.</p>
+  <p>This page provides older releases of BMMO client mods. They are here purely for archival purposes; only the latest version is supported. For older server executables, please refer to <a href="https://github.com/Swung0x48/BallanceMMO/actions">builds at GitHub Actions</a>.</p>
   <h3>List</h3>
   <table id="version-list" class="colored">
     <tr><th>Version</th><th>Time</th><th>Downloads</th></tr>
     <?php
-      include 'scan_dir.php';
+      include 'rescan.php';
 
-      $files = scan_dir('../files');
+      $data = json_decode(file_get_contents('../files/data.json'), true);
+      if (time() - @$data['generation_time'] > 14400) {
+        generate_data();
+        $data = json_decode(file_get_contents('../files/data.json'), true);
+      };
       date_default_timezone_set("UTC");
-      foreach ($files as $file) {
-        if (preg_match('/^(.+)_((?:[0-9\.]+)?(?:-(?:alpha|beta|rc)[0-9]+)?)\.bmod$/', $file, $matches)) {
-          echo "<tr><td>$matches[2]</td><td>" . filemtime("../files/$file") . "</td><td><a href='../files/$file'>Mod only</a> &#160;<b>·</b>&#160; <a href='./standalone?file=$file'>Standalone Package</a></td></tr>";
-        };
+      foreach ($data["files"] as $file) {
+        echo "<tr><td>${file['version']}</td><td>${file['time']}</td><td><a href='../files/${file['filename']}'>Mod only</a> &#160;<b>·</b>&#160; <a href='./standalone?file=${file['filename']}'>Standalone Package</a></td></tr>";
       };
     ?>
   </table>
