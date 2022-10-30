@@ -17,6 +17,6 @@ function generate_data() {
   file_put_contents("../files/data.json", json_encode($data));
 };
 
-if (@$_GET["forced"] = "true")
+if (@$_GET["forced"] == "true")
   generate_data();
 ?>
