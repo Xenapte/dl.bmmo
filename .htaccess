@@ -2,5 +2,8 @@
   RewriteEngine On 
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteRule ^download/(.+) /download/$1.php [QSA,PT,L] 
+  RewriteRule ^download/(.+) /download/$1.php [QSA,PT,L]
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^utils/(.+) /utils/$1.html [QSA,PT,L]
 </IfModule>

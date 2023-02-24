@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMMO Name Validator</title>
+  <link rel="stylesheet" href="../styles/common.css">
+  <style>
+    #username {
+      font: 0.9em "SF Mono", Menlo, "Noto Sans Mono", "Roboto Mono", Consolas, "Liberation Mono", monospace;
+      padding: 2px 5px; background-color: white; border: none;
+      border-bottom: 2.5px solid #0003;
+    }
+    #username:focus { outline: none; }
+    #hints { font-size: smaller; color: rgba(219, 42, 42, 0.872); }
+  </style>
+</head>
+<body onload="transformUsername()">
+  <h2>Ballance Massively Multiplayer Online - Name Validator</h2>
+  <p class="larger">Input your desired nickname: <input type="text" name="username" id="username" oninput="transformUsername()">.</p>
+  <p>Results: <code id="transformed-username"></code></p>
+  <ul id="hints"></ul>
+  <footer>
+    <p><a href="../">Return to Home Page</a></p>
+    <p><cite>Page created by BallanceBug on 2023-02-20.</cite></p>
+  </footer>
+  <script>
+    const min_length = 3, max_length = 20;
+    const valid_chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_\\-+=.~()";
+    const invalid_chars_regexp = new RegExp(`[^${valid_chars}]`), non_underscore_regexp = /[^_]/;
+
+    function transformUsername() {
+      let username = document.getElementById("username").value;
+      let hintsElement = document.getElementById("hints");
+
+      hintsElement.innerHTML = "";
+
+      if (username.length < min_length || username.length > max_length) {
+        hintsElement.appendChild(createHint(`Nickname must be between ${min_length} and ${max_length} characters in length.`));
+        username = (username + "___").slice(0, max_length);
+      }
+
+      let invalid_pos = -1;
+      while ((invalid_pos = username.search(invalid_chars_regexp)) != -1) {
+        hintsElement.appendChild(createHint(`Invalid character <code>${username[invalid_pos]}</code> at position <ins>${invalid_pos}</ins>; nicknames must only contain alphanumeric characters and underscores.`));
+        username = username.slice(0, invalid_pos) + "_" + username.slice(invalid_pos + 1);
+      }
+
+      if (username.search(non_underscore_regexp) == -1) {
+        username = getRandomName();
+        hintsElement.appendChild(createHint("Nickname does not contain any valid characters. Replaced with a randomly generated one."));
+      }
+
+      document.getElementById("transformed-username").innerHTML = username;
+    }
+
+    function createHint(hintText) {
+      let hint = document.createElement("li");
+      hint.innerHTML = hintText;
+      return hint;
+    }
+
+    function getRandomName() {
+      let date = new Date();
+      return `Player${Math.floor(1000 * Math.random()).toString().padStart(3, "0")}_${(date.getMonth() + 1).toString().padStart(2, "0")}${date.getDate().toString().padStart(2, "0")}`;
+    }
+  </script>
+</body>
+</html>
