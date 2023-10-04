@@ -23,6 +23,7 @@ code {
 
 .larger {font-size: 105%}
 .smaller {font-size: 88%}
+.emphasized {color: rgb(174, 39, 39)}
 
 table {
   border-collapse: collapse;
@@ -51,6 +52,6 @@ footer {
   margin-top: 1em;
   padding: 0.2em 2px 0;
   border-top: 2px solid rgba(32, 32, 32, 0.16);
-  font-size: 98%;
+  font-size: 96%;
   margin-right: 5%;
 }

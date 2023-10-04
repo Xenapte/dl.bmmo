@@ -1,5 +1,371 @@
 [
   {
+    "version": "3.5.2-beta5",
+    "time": "2023-10-04",
+    "content": [
+      "Fix: made the mod generate crash dump files correctly.",
+      "Change: better fatal error message box with random quotes.",
+      "New: support for multi-line important notifications and automatically insert line breaks using actual character widths."
+    ]
+  },
+  {
+    "version": "3.5.1-beta4",
+    "time": "2023-09-28",
+    "content": [
+      "Fix: crashing caused by malformed messages.",
+      "New: support for multi-line bulletin notifications (up to 3 lines)."
+    ]
+  },
+  {
+    "version": "3.5.0-beta2",
+    "time": "2023-09-23",
+    "content": [
+      "Fix: commands with 3 words can now be executed correctly."
+    ]
+  },
+  {
+    "version": "3.5.0-beta1",
+    "time": "2023-09-18",
+    "content": [
+      "New: <code>/mmo scores</code> command to view received rankings locally."
+    ]
+  },
+  {
+    "version": "3.5.0-alpha1",
+    "time": "2023-09-08",
+    "content": [
+      "New: support for the Highscore Mode."
+    ]
+  },
+  {
+    "version": "3.4.10-beta16",
+    "time": "2023-09-06",
+    "content": [
+      "New: wave sound notifications.",
+      "New: ability for servers to send and play custom wave sounds."
+    ]
+  },
+  {
+    "version": "3.4.9-beta15",
+    "time": "2023-08-25",
+    "content": [
+      "Change: reverted the extrapolation algorithm to that as of 3.4.8."
+    ]
+  },
+  {
+    "version": "3.4.9-beta14",
+    "time": "2023-08-20",
+    "content": [
+      "Change: slightly improved the accuracy/precision of extrapolations and level completion timings."
+    ]
+  },
+  {
+    "version": "3.4.8-beta13",
+    "time": "2023-08-08",
+    "content": [
+      "New: added an option to cancel beep sounds played on important server events."
+    ]
+  },
+  {
+    "version": "3.4.8-beta12",
+    "time": "2023-07-20",
+    "content": [
+      "New: name changes are now limited to once every 24 hours.",
+      "New: cooldown for DNF messages.",
+      "Change: slightly increased the timeout threshold for loss of connection."
+    ]
+  },
+  {
+    "version": "3.4.7-alpha8",
+    "time": "2023-07-12",
+    "content": [
+      "New: auto-reconnection back to the server after unintended loss of connection."
+    ]
+  },
+  {
+    "version": "3.4.6-beta11",
+    "time": "2023-02-15",
+    "content": [
+      "Fix: auto-reconnection (triggered by modifying username, etc) now uses the address of the last connected server correctly."
+    ]
+  },
+  {
+    "version": "3.4.6-alpha7",
+    "time": "2023-02-10",
+    "content": [
+      "New: opacities of spirit balls is now dynamically adjusted according to their distances to the player camera.",
+      "Change: slightly decreased minimum font size of the player list."
+    ]
+  },
+  {
+    "version": "3.4.5-beta10",
+    "time": "2023-01-24",
+    "content": [
+      "Change: moved UUID configuration to the <code>%AppData%</code> directory."
+    ]
+  },
+  {
+    "version": "3.4.5-alpha5 || 3.4.5-alpha6",
+    "time": "2023-01-16",
+    "content": [
+      "New: ball state packets are now compressed to save bandwidth (theoretical maximum 38.6% saving on data rate)."
+    ]
+  },
+  {
+    "version": "3.4.4-beta9",
+    "time": "2023-01-08",
+    "content": [
+      "Fix: log spam caused by incorrect ball state message handling."
+    ]
+  },
+  {
+    "version": "3.4.4-beta8",
+    "time": "2023-01-06",
+    "content": [
+      "Change: updated the anti-cheating warning system."
+    ]
+  },
+  {
+    "version": "3.4.4-beta7",
+    "time": "2022-12-30",
+    "content": [
+      "New: auto warning system for anti-cheating.",
+      "Change: slightly reduced the size of ball state network packets."
+    ]
+  },
+  {
+    "version": "3.4.3-beta6",
+    "time": "2022-12-08",
+    "content": [
+      "Change: automatic reconnection after modifying player name or server address."
+    ]
+  },
+  {
+    "version": "3.4.3-beta5",
+    "time": "2022-12-02",
+    "content": [
+      "New: sound effects now plays during countdowns.",
+      "New: taskbar icon of Ballance flashes after receiving new messages."
+    ]
+  },
+  {
+    "version": "3.4.2-beta4",
+    "time": "2022-11-20",
+    "content": [
+      "New: permanent notifications.",
+      "Change: font size of the player list is now more aggresively adjusted based on player count."
+    ]
+  },
+  {
+    "version": "3.4.1-beta3",
+    "time": "2022-11-13",
+    "content": [
+      "Change: font size of the player list is now dynamically adjusted based on the total non-spectating player count."
+    ]
+  },
+  {
+    "version": "3.4.1-beta2",
+    "time": "2022-11-06",
+    "content": [
+      "Change: server-side names of the same custom map now take priority when displaying the player list."
+    ]
+  },
+  {
+    "version": "3.4.0-beta1",
+    "time": "2022-11-04",
+    "content": [
+      "Change: some minor stability improvements."
+    ]
+  },
+  {
+    "version": "3.4.0-alpha4",
+    "time": "2022-10-31",
+    "content": [
+      "Change: the key binding used to toggle the real-time player list is changed to <code>Ctrl</code> + <code>Tab</code>.",
+      "New: custom player list color configuration."
+    ]
+  },
+  {
+    "version": "3.4.0-alpha2 || 3.4.0-alpha3",
+    "time": "2022-10-29",
+    "content": [
+      "Fix: Windows 7 compatibility.",
+      "Fix: ordering of real-time player list."
+    ]
+  },
+  {
+    "version": "3.4.0-alpha1",
+    "time": "2022-10-28",
+    "content": [
+      "Change: current maps of other players are now stored locally.",
+      "New: <code>F3</code> + <code>H</code> for viewing others's current maps and sectors in real time.",
+      "Fix: result of <code>/mmo list</code> is now sorted case-insensitively."
+    ]
+  },
+  {
+    "version": "3.3.7-beta14",
+    "time": "2022-10-24",
+    "content": [
+      "Fix: font sizes of text sprites are now independent of system DPI.",
+      "Fix: hide ANSI control charactors on platforms that does not support them (Windows 7).",
+      "Change: player names are now sorted alphabetically when using <code>/mmo list</code>."
+    ]
+  },
+  {
+    "version": "3.3.7-beta13",
+    "time": "2022-10-17",
+    "content": [
+      "Change: better extrapolation and server-side ticking."
+    ]
+  },
+  {
+    "version": "3.3.7-beta12",
+    "time": "2022-10-08",
+    "content": [
+      "New: popup messages.",
+      "Change: slightly adjusted the display of important notifications."
+    ]
+  },
+  {
+    "version": "3.3.6-beta11",
+    "time": "2022-10-04",
+    "content": [
+      "New: auto reconnection when kicked by server under special circumstances.",
+      "Change: important notifications are now displayed in the default system font.",
+      "Fix: correctly display level completion time after a forced restart."
+    ]
+  },
+  {
+    "version": "3.3.6-beta10",
+    "time": "2022-09-29",
+    "content": [
+      "New: servers will now validate clients' installed mods when joining."
+    ]
+  },
+  {
+    "version": "3.3.5-beta9",
+    "time": "2022-09-20",
+    "content": [
+      "New: <code>/mmo announce</code> to announce important notifications."
+    ]
+  },
+  {
+    "version": "3.3.4-beta8",
+    "time": "2022-09-15",
+    "content": [
+      "New: <code>Ctrl</code> + <code>5</code> to ask players for confirmation of readiness.",
+      "New: server-side chat muting and banning settings.",
+      "Fix: spectators are no longer able to use <code>/mmo ready</code> now."
+    ]
+  },
+  {
+    "version": "3.3.3-beta7",
+    "time": "2022-09-08",
+    "content": [
+      "New: <code>Ctrl</code> + <code>4</code> to send the <i>Ready</i> messages.",
+      "New: <code>/mmo ready</code> for confirming player is ready (<code>/mmo ready-cancel</code> to cancel).",
+      "Fix: server times are used for duration of level completions whenever possible.",
+      "Change: improved the style of <code>/mmo list</code>."
+    ]
+  },
+  {
+    "version": "3.3.3-beta6",
+    "time": "2022-09-02",
+    "content": [
+      "New: <code>F3</code> + <code>A</code> as a shortcut to reload all spirit balls.",
+      "New: <code>/mmo countdown</code> for automatic countdown.",
+      "Fix: correctly restart levels on countdown for custom maps in <code>3D Entities\\Levels</code>.",
+      "Change: font sizes in connection status display (togglable by pressing F3) are now set relative to window resolutions.",
+      "Change: nametag labels should be closer to the center of spirit balls now."
+    ]
+  },
+  {
+    "version": "3.3.3-alpha7",
+    "time": "2022-08-30",
+    "content": [
+      "New: Spectator Mode. Spectators are invisible to other players except in chat/login/logout messages, and are denoted by the prefix <code>*</code> in their names.",
+      "Change: slightly tweaked extrapolation settings."
+    ]
+  },
+  {
+    "version": "3.3.2-beta4 || 3.3.2-beta5",
+    "time": "2022-08-24",
+    "content": [
+      "Fix: spirit balls freezing from incorrect timestamps.",
+      "Change: further lowered maximum extrapolation time/distance.",
+      "New: <code>/mmo reload</code> to reload all spirit balls if player nametags are displayed at wrong positions."
+    ]
+  },
+  {
+    "version": "3.3.2-beta3",
+    "time": "2022-08-18",
+    "content": [
+      "Fix: client now shows positions of stationary players correctly after joining the server.",
+      "New: private chat by using <code>/mmo whisper &lt;player&gt; &lt;text&gt;</code> (also <code>/mmo w</code>).",
+      "New: tab key completion for player names.",
+      "New: case-insensitive search for player names.",
+      "New: <code>Ctrl</code> + <code>Shift</code> + <code>↑</code> for resetting current camera orientation."
+    ]
+  },
+  {
+    "version": "3.3.1-beta2",
+    "time": "2022-08-15",
+    "content": [
+      "New: only timestamps instead of full ball state messages are sent when a client is not moving.",
+      "New: added <code>/mmo teleport</code> (must be used with Cheat Mode)."
+    ]
+  },
+  {
+    "version": "3.3.0-beta1",
+    "time": "2022-08-14",
+    "content": [
+      "Fix: stop extrapolating when client is laggy (have not received ball state packets for a fixed time).",
+      "New: added <code>/mmo announcemap</code> and <code>/mmo getpos</code>; <code>/mmo connect</code> can now be used together with server addresses."
+    ]
+  },
+  {
+    "version": "3.3.0-alpha6",
+    "time": "2022-08-10",
+    "content": [
+      "Fix: extrapolation of rotation (now using the Slerp method)."
+    ]
+  },
+  {
+    "version": "3.3.0-alpha4 || 3.3.0-alpha5",
+    "time": "2022-08-09",
+    "content": [
+      "Fix: older clients are now moving correctly after joining.",
+      "Fix: reduced random flickering.",
+      "Change: more optimization to extrapolation for smoother movements."
+    ]
+  },
+  {
+    "version": "3.3.0-alpha3",
+    "time": "2022-08-08",
+    "content": [
+      "Fix: balls no longer flicker when extrapolation is enabled."
+    ]
+  },
+  {
+    "version": "3.3.0-alpha2",
+    "time": "2022-08-08",
+    "content": [
+      "New: ball states are now sent with timestamps to prevent them from being processed without order.",
+      "New: togglable quadratic extrapolation for movements of spirit balls to make them move smoother.",
+      "Change: removed <code>@</code> and added <code>.</code> to characters available for nicknames."
+    ]
+  },
+  {
+    "version": "3.2.12-beta18",
+    "time": "2022-08-06",
+    "content": [
+      "Fix: clients are now automatically kicked by the server upon encountering fatal errors to prevent further malformed packets and allow quicker reconnection (previously one need to wait ~15 seconds for the server to kick the dead client from timeouts; during this time period reconnection attempts are rejected).",
+      "Change: hotkey for toggling own spirit ball is changed to <code>Ctrl</code> + <code>`</code>.",
+      "New: nicknames consisting of only underscore characters are invalidated; they will be randomly regenerated.",
+      "New: randomly generated names are more distinct now."
+    ]
+  },
+  {
     "version": "3.2.12-beta17",
     "time": "2022-08-04",
     "content": [

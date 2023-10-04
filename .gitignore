@@ -1,3 +1,6 @@
 files/
 temp/*.dll
+temp/*/
 packages/
+utils/server-status-*.php
+documents/

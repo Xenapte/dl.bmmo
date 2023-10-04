@@ -23,7 +23,8 @@
   <ul>
     <li>
       <h4>Client Mod Package</h4>
-      <p class="smaller">Requires Windows 7+ and Ballance Mod Loader 0.3.42 (<a href="files/BML-0.3.42.zip"><b>download</b></a>). <b>If you don't know which version to choose, just select and download the standalone package.</b></p>
+      <p class="smaller">Requires Windows 7+ and Ballance Mod Loader 0.3.42 (<a href="files/BML-0.3.42.zip"><b>download</b></a>). <b>If you don't know which version to choose, just select and download the <u>standalone</u> package.</b></p>
+      <p class="smaller emphasized"><b>Important notice</b>: if you are updating from <b>3.5.1 or below</b> then you must remove all <i>.dll</i> files in your <i>Mods</i> directory and download the dependencies again!</p>
       <p id="latest-version" class="smaller"></p>
       <ul>
         <li><a href="download/standalone"><b>Download Standalone Package</b></a> (all dependencies included)</li>
@@ -47,14 +48,14 @@
   <p class="smaller">Note: only changes related to actual mod/server behaviors (i.e., excluding code refactors) are documented here.</p>
   <div id="changelogs"></div>
   <footer>
-    <p><cite>Website (<a href="https://github.com/Xenapte/dl.bmmo">source code</a>) created by BallanceBug on 2022-07-28.</cite></p>
+    <p><cite>Website (<a href="https://github.com/Xenapte/dl.bmmo">source code</a>) created by BallanceBug on 2022-07-28. Last updated on 2023-10-04.</cite></p>
   </footer>
   <script>
     function init() {
       fetch("download/latest?version-only=true")
         .then(res => res.json())
         .then(data => {
-          document.getElementById("latest-version").innerHTML = `Latest version: ${data["version"]} (${(new Date(1000 * data["time"])).toLocaleString([], {hour12: false})})`;
+          document.getElementById("latest-version").innerHTML = `Latest version: <u>${data["version"]}</u> (${(new Date(1000 * data["time"])).toLocaleString([], {hour12: false})})`;
         });
       fetch("changelogs.json")
         .then(res => res.json())

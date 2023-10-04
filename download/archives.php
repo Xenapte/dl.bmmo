@@ -13,6 +13,7 @@
   <h2>Ballance Massively Multiplayer Online - Release Archives</h2>
   <h3>About</h3>
   <p>This page provides older releases of BMMO client mods. They are here purely for archival purposes; only the latest version is supported. For older server executables, please refer to <a href="https://github.com/Swung0x48/BallanceMMO/actions">builds at GitHub Actions</a>.</p>
+  <p>For versions <b>3.5.1 or below</b> you must also use the <a href="../files/BMMO-dependencies-2022.zip">2022 dependency package</a> if you wish to download the mod and its dependencies separately.</p>
   <h3>List</h3>
   <table id="version-list" class="colored">
     <tr><th>Version</th><th>Time</th><th>Downloads</th></tr>

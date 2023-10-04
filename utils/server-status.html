@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMMO Name Validator</title>
+  <link rel="stylesheet" href="../styles/common.css">
+</head>
+<body onload="getPlayers()">
+  <h2>Ballance Massively Multiplayer Online - Server status</h2>
+  <h3>Online players of 2.bmmo.ml</h3>
+  <p><a href="javascript:void(0)" onclick="getPlayers()">Refresh</a></p>
+  <p id="online-player-count">Loading ...</p>
+  <table class="colored" id="online-player-table">
+    <tr>
+      <th>Name</th>
+      <th>Online since</th>
+      <th>Time of playing</th>
+    </tr>
+  </table>
+  <footer>
+    <p><a href="../">Return to Home Page</a></p>
+    <p><cite>Page created by BallanceBug on 2023-04-05.</cite></p>
+  </footer>
+  <script>
+    const tableInitialHTML = document.getElementById("online-player-table").innerHTML;
+    const formatDuration = ms => {
+      if (ms < 0) ms = -ms;
+      const time = {
+        day: Math.floor(ms / 86400000),
+        hour: Math.floor(ms / 3600000) % 24,
+        minute: Math.floor(ms / 60000) % 60,
+        second: Math.floor(ms / 1000) % 60,
+        millisecond: Math.floor(ms) % 1000
+      };
+      return Object.entries(time)
+        .filter(val => val[1] !== 0)
+        .map(([key, val]) => `${val} ${key}${val !== 1 ? 's' : ''}`)
+        .join(', ');
+    };
+    function formatPlayer(player) {
+      return `
+        <td>${player.name}</td>
+        <td>${(new Date(1000 * player.login_time)).toLocaleString([], {hour12: false})}</td>
+        <td>${formatDuration(1000 * Math.floor(player.login_time - new Date().getTime() / 1000))}</td>
+        `;
+    }
+    function getPlayers() {
+      fetch("./server-status-2.bmmo.php")
+        .then(res => res.json())
+        .then(res => {
+          let playerList = Array.from(res), spectatorList = [];
+          playerList.sort((a, b) => a.name > b.name ? 1 : -1);
+          let onlinePlayerTable = document.getElementById("online-player-table");
+          onlinePlayerTable.innerHTML = tableInitialHTML;
+          playerList.forEach(player => {
+            if (player.name.startsWith("*")) {
+              spectatorList.push(player);
+              return;
+            }
+            let tr = document.createElement("tr");
+            tr.innerHTML = formatPlayer(player);
+            onlinePlayerTable.appendChild(tr);
+          });
+          spectatorList.forEach(player => {
+            let tr = document.createElement("tr");
+            tr.innerHTML = formatPlayer(player);
+            onlinePlayerTable.appendChild(tr);
+          });
+          document.getElementById("online-player-count").innerHTML
+            = `${playerList.length} client(s) online: ${playerList.length - spectatorList.length} player(s), ${spectatorList.length} spectator(s). <small>(Last updated: <ins>${new Date().toLocaleString([], {hour12: false})}</ins>)</small>`;
+        })
+        .catch(error => console.log(error));
+    };
+  </script>
+</body>
+</html>
