@@ -1,10 +1,36 @@
 [
   {
+    "version": "3.5.4-beta8",
+    "time": "2023-10-18",
+    "content": [
+      "New: the sidebar player list now displays time differences of reaching each sector between players.",
+      "New: <code>/mmo scores</code> now displays <i>DNF</i> data and a counter.",
+      "<i>Notes: this version requires at least BML 0.3.43 or BMLPlus 0.2.3.</i>"
+    ]
+  },
+  {
+    "version": "3.5.3-beta7",
+    "time": "2023-10-10",
+    "content": [
+      "New: built-in server list and manager.",
+      "New: colorized console output using ANSI sequences.",
+      "Fix: <code>/mmo whisper</code> should work again.",
+      "<i>Notes: this version was re-uploaded on 2023-10-11 with some color adjustments and a slightly more polished server manager.</i>"
+    ]
+  },
+  {
+    "version": "3.5.2-beta6",
+    "time": "2023-10-06",
+    "content": [
+      "Fix (maybe): some fatal errors caused by race conditions."
+    ]
+  },
+  {
     "version": "3.5.2-beta5",
     "time": "2023-10-04",
     "content": [
-      "Fix: made the mod generate crash dump files correctly.",
-      "Change: better fatal error message box with random quotes.",
+      "Fix: reload server address ingame correctly.",
+      "Change: improved crash dump saving fatal error message box with random quotes.",
       "New: support for multi-line important notifications and automatically insert line breaks using actual character widths."
     ]
   },
