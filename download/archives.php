@@ -14,6 +14,7 @@
   <h3>About</h3>
   <p>This page provides older releases of BMMO client mods. They are here purely for archival purposes; only the latest version is supported. For older server executables, please refer to <a href="https://github.com/Swung0x48/BallanceMMO/actions">builds at GitHub Actions</a>.</p>
   <p>For versions <b>3.5.1 or below</b> you must also use the <a href="../files/BMMO-dependencies-2022.zip">2022 dependency package</a> if you wish to download the mod and its dependencies separately.</p>
+  <p>BML+ versions only come with BMMO 3.5.14 or above. <i>If you attempt to download older BML+ archives you will get a 404 error; this is intended behavior.</i></p>
   <h3>List</h3>
   <table id="version-list" class="colored">
     <tr><th>Version</th><th>Time</th><th>Downloads</th></tr>
@@ -27,7 +28,7 @@
       };
       date_default_timezone_set("UTC");
       foreach ($data["files"] as $file) {
-        echo "<tr><td>${file['version']}</td><td>${file['time']}</td><td><a href='../files/${file['filename']}'>Mod only</a> &#160;<b>·</b>&#160; <a href='./standalone?file=${file['filename']}'>Standalone Package</a></td></tr>";
+        echo "<tr><td>{$file['version']}</td><td>{$file['time']}</td><td>Mod only: <a href='../files/{$file['filename']}'>BML</a> | <a href='../files/{$file['filename']}p'>BML+</a> &#160;<b>·</b>&#160; <a href='./standalone?file={$file['filename']}'>Standalone Package</a></td></tr>";
       };
     ?>
   </table>

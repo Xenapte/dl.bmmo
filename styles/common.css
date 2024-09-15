@@ -48,6 +48,8 @@ a:hover {text-decoration-style: solid}
 #changelogs ul {font-size: 96%}
 #changelogs ul p {font-weight: bold}
 
+.hint {color: rgba(0, 0, 0, 0.7); text-decoration: dotted underline; cursor: help}
+
 footer {
   margin-top: 1em;
   padding: 0.2em 2px 0;

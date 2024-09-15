@@ -14,7 +14,7 @@ if (count($data['files']) < 1) {
     header('Content-Type: application/json; charset=utf-8');
     echo json_encode(array('version' => $data['files'][0]['version'], 'time' => $data['files'][0]['time']));
   } else {
-    header('Location: ../files/' . $data['files'][0]['filename']);
+    header('Location: ../files/' . $data['files'][0]['filename'] . (@$_GET['bmlp'] == 'true' ? 'p' : ''));
   };
 };
 ?>

@@ -18,17 +18,17 @@
   <p class="larger">The Ballance multiplayer experience, finally around. Install Ballance Massively Multiplayer Online (BallanceMMO / BMMO) Mod and play, together with your friends.</p>
   <p>Made by <a href="https://github.com/Swung0x48">Swung0x48</a> and <a href="https://github.com/Xenapte">BallanceBug</a>. Github repository: <a href="https://github.com/Swung0x48/BallanceMMO"><b>Swung0x48/BallanceMMO</b></a></p>
   <h3>Installation</h3>
-  <p>For clients, make sure you have Ballance with <a href="https://github.com/Gamepiaynmo/BallanceModLoader">Ballance Mod Loader</a> installed, then download the client mod package (with dependencies), and place it into <code>(BallanceDirectory)\ModLoader\Mods\</code>. Unzipping of the package is not required but may be desired if the user wishes to download only the bare mod file.</p>
+  <p>For clients, make sure you have Ballance with either <a href="https://github.com/Gamepiaynmo/BallanceModLoader">Ballance Mod Loader (BML)</a> or <a href="https://github.com/doyaGu/BallanceModLoaderPlus">Ballance Mod Loader Plus (BML+)</a> installed, then download the client mod package (with dependencies), and place it into <code>(BallanceDirectory)\ModLoader\Mods\</code>. Unzipping of the package is not required but may be desired if the user wishes to download only the bare mod file.</p>
   <h3>Download</h3>
   <ul>
     <li>
       <h4>Client Mod Package</h4>
-      <p class="smaller">Requires Windows 7+ and Ballance Mod Loader 0.3.43 (<a href="files/BML-0.3.43.zip"><b>download</b></a>). <b>If you don't know which version to choose, just select and download the <u>standalone</u> package.</b></p>
-      <p class="smaller emphasized"><b>Important notice</b>: If you are updating from <b>3.5.1 or below</b> then you must remove all <i>.dll</i> files in your <i>Mods</i> directory and download the dependencies again! From 3.5.4 on you also need to update your BallanceModLoader to 0.3.43.</p>
+      <p class="smaller">Requires Windows 7+ and (either) BML 0.3.43 (<a href="files/BML-0.3.43.zip"><b>download</b></a>) or BML+ <span class="hint" title="BML+ versions greater than 0.2.3 can be used but they haven't been thoroughly tested. Use at your own risk.">0.2.3*</span> (<a href="files/BallanceModLoaderPlus-v0.2.3.zip"><b>download</b></a>). <b>If you don't know which version to choose, just select and download the <u>standalone</u> package.</b></p>
+      <p class="smaller emphasized"><b>Important notice</b>: If you are updating from <b>3.5.1 or below</b> then you must remove all <i>.dll</i> files in your <i>Mods</i> directory and download the dependencies again! From 3.5.4 on you also need to update your BallanceModLoader to 0.3.43. BML+ packages are only available for versions above 3.5.14.</p>
       <p id="latest-version" class="smaller"></p>
       <ul>
         <li><a href="download/standalone"><b>Download Standalone Package</b></a> (all dependencies included)</li>
-        <li>Download only <a href="download/latest">the mod itself</a> or <a href="files/BMMO-dependencies.zip">dependencies</a> (for experienced users)</li>
+        <li>Download only the mod itself (version: <a href="download/latest">BML</a> | <a href="download/latest?bmlp=true">BML+</a>) or <a href="files/BMMO-dependencies.zip">dependencies</a> (for experienced users)</li>
         <li><a href="download/archives">Download older archives</a> (unsupported)</li>
       </ul>
     </li>
@@ -72,6 +72,11 @@
           });
           document.getElementById("changelogs").appendChild(topList);
         });
+      document.querySelectorAll(".hint").forEach(el => {
+        el.addEventListener("click", (event) => {
+          alert(event.currentTarget.title);
+        });
+      });
     };
 
     init();

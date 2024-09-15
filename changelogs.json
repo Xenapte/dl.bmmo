@@ -1,5 +1,188 @@
 [
   {
+    "version": "3.5.14-beta30",
+    "time": "2024-09-16",
+    "content": [
+      "New: slight delay to countdown events based on the latency, so players can start the game around the same time. This likely won't matter much as usually they mostly differ in their framerates instead of latency, but it could still help in certain scenarios."
+    ]
+  },
+  {
+    "version": "3.5.13-beta29",
+    "time": "2024-05-03",
+    "content": [
+      "New: server now broadcasts latency data to clients (i.e. clients can now see each others' pings)."
+    ]
+  },
+  {
+    "version": "3.5.12-beta28",
+    "time": "2024-04-04",
+    "content": [
+      "Fix: duplicate failures messages trying to restart other players.",
+      "New: the server can now change level-initial lives of players based on configured maps."
+    ]
+  },
+  {
+    "version": "3.5.11-beta27",
+    "time": "2024-02-29",
+    "content": [
+      "New: server-wide broadcast for restart request failures."
+    ]
+  },
+  {
+    "version": "3.5.10-beta26",
+    "time": "2024-02-27",
+    "content": [
+      "Fix: first-launch crash with BMMO installed.",
+      "Fix: config path issue with BMLPlus <small>(details: some BMLPlus builds use <code>ModLoader/Config<b>s</b></code> to store mod configurations, instead of the more-common <code>ModLoader/Config</code> directory)</small>."
+    ]
+  },
+  {
+    "version": "3.5.10-beta25",
+    "time": "2024-02-09",
+    "content": [
+      "New: text colors are now preserved in console text cache (shown when opening the console).",
+      "Fix: reverted console changes for Windows 7, which doesn't seem to have support for Unicode input/output (Unicode is still used for newer Windows versions).",
+      "Fix: race condition during parallel log outputs.",
+      "Fix: console crash when trying to access history after start-ups."
+    ]
+  },
+  {
+    "version": "3.5.10-beta24",
+    "time": "2024-02-04",
+    "content": [
+      "New: <code>/mmo restartlevel</code> command for restarting other players' levels.",
+      "Fix: the ingame console now fully supports and uses UTF-8 input/output.",
+      "Fix: rare crashes during startup (caused by a race condition where the mod tries to init its GUIs during BML initialization)."
+    ]
+  },
+  {
+    "version": "3.5.9-beta23",
+    "time": "2024-01-28",
+    "content": [
+      "New: <code>/mmo crash</code> command.",
+      "Fix: opacities of spirit balls are now reset at regular intervals; hopefully this fixes the incorrect opacity issue."
+    ]
+  },
+  {
+    "version": "3.5.9-beta22",
+    "time": "2024-01-12",
+    "content": [
+      "New: servers now detect the infinite lives modification."
+    ]
+  },
+  {
+    "version": "3.5.8-beta21",
+    "time": "2023-12-29",
+    "content": [
+      "Fix: <code>/mmo hide</code> (hiding the console) no longer crashes the game."
+    ]
+  },
+  {
+    "version": "3.5.8-beta20",
+    "time": "2023-12-28",
+    "content": [
+      "New: console tab completion.",
+      "Change: commands like <code>/mmo kick</code> now only hints player names unless the input has a <code>#</code> as its prefix; in that case player connection IDs are hinted."
+    ]
+  },
+  {
+    "version": "3.5.8-beta19",
+    "time": "2023-12-18",
+    "content": [
+      "New: servers can now force new name on their players.",
+      "Fix: removed random junk texts on the Fatal Error message box."
+    ]
+  },
+  {
+    "version": "3.5.8-beta18",
+    "time": "2023-12-16",
+    "content": [
+      "New: Highscore Timer Calibration &ndash; this finally enables the player to rejoin in highscore mode if they were to crash unexpectedly mid-game.",
+      "Change: tweaked some display details of important notifications."
+    ]
+  },
+  {
+    "version": "3.5.7-beta17",
+    "time": "2023-11-24",
+    "content": [
+      "Fix: The <i>Fatal Error</i> message box now only displays once when the game crashes.",
+      "New: clients now notify the server when their balls fall (currently this has no uses)."
+    ]
+  },
+  {
+    "version": "3.5.7-beta16",
+    "time": "2023-11-18",
+    "content": [
+      "Fix: text display of permanent notifications / bulletins.",
+      "Fix: <code>/mmo scores</code> now displays <i>DNF</i> messages correctly."
+    ]
+  },
+  {
+    "version": "3.5.7-beta15",
+    "time": "2023-11-18",
+    "content": [
+      "Change: <i>DNF</i> messages now show the furthest-reached sector.",
+      "Fix: players that have forfeited the game by sending the <i>DNF</i> message are no longer able to trigger new <i>DNF</i> messages or level-finish announcements.",
+      "Change: clients now sync score data from the server with <code>/mmo scores</code> so they can still view previous level rankings even after game restarts. Local data is still accessible with <code>/mmo scores local</code>."
+    ]
+  },
+  {
+    "version": "3.5.6-beta14",
+    "time": "2023-11-10",
+    "content": [
+      "Change: minor tweaks to the position of Notice texts.",
+      "Change: slightly optimized the server list GUI."
+    ]
+  },
+  {
+    "version": "3.5.6-beta13",
+    "time": "2023-11-08",
+    "content": [
+      "New: <code>/mmo notice</code> for a slightly less intrusive version of announcements.",
+      "Fix: another font size glitch of sidebar player list.",
+      "Fix: server list can no longer be affected by key inputs after leaving it."
+    ]
+  },
+  {
+    "version": "3.5.5-beta12",
+    "time": "2023-11-04",
+    "content": [
+      "New: <code>/mmo a</code> and <code>/mmo b</code> as new aliases for <code>/mmo announce</code> and <code>/mmo bulletin</code>",
+      "New: <code>/mmo uuid</code> for exporting the UUID.",
+      "Change: improved efficiency with command executions.",
+      "Change: tweaked the font size of score list so it's now adjusted according to the player count.",
+      "Fix: font size glitch of sidebar player list.",
+      "Fix: client no longer hangs exiting the game after playing sound stream messages from server.",
+      "Fix: client no longer hangs trying to join the server again after getting denied.",
+      "Fix: <i>Fatal Error</i> message box now outlives the game itself; it would remain even after the main window had crashed."
+    ]
+  },
+  {
+    "version": "3.5.5-beta11",
+    "time": "2023-10-28",
+    "content": [
+      "New: switched to using linear extrapolation for spirit balls from players with very low update interval variances, as it offers smoother movements; quadratic extrapolation is still used for players with moderate variances (for less deviation from actual positions).",
+      "Fix: <code>/mmo tp</code> now works correctly (it was broken since the very beginning and somehow flew under the radar for more than a year!).",
+      "Fix: nametag flickering issue with ball transformers."
+    ]
+  },
+  {
+    "version": "3.5.5-beta10",
+    "time": "2023-10-25",
+    "content": [
+      "New: score list and level finish messages now display player's actual level mode.",
+      "Fix: spirit balls from players with high update interval variances (usually caused by poor connection qualities) are no longer extrapolated."
+    ]
+  },
+  {
+    "version": "3.5.4-beta9",
+    "time": "2023-10-20",
+    "content": [
+      "New: made the server selection screen mouse-controllable.",
+      "Fix: sidebar player list now ignores events of spectators reaching sectors."
+    ]
+  },
+  {
     "version": "3.5.4-beta8",
     "time": "2023-10-18",
     "content": [
