@@ -4,15 +4,25 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BMMO Name Validator</title>
+  <title>BMMO Server status</title>
   <link rel="stylesheet" href="../styles/common.css">
 </head>
-<body onload="getPlayers()">
+<body onload="getPlayers('1.bmmo'); getPlayers('2.bmmo')">
   <h2>Ballance Massively Multiplayer Online - Server status</h2>
-  <h3>Online players of 2.bmmo.ml</h3>
-  <p><a href="javascript:void(0)" onclick="getPlayers()">Refresh</a></p>
-  <p id="online-player-count">Loading ...</p>
-  <table class="colored" id="online-player-table">
+  <h3>Online players of 1.<span class="domain-ph">$domain</span></h3>
+  <p><a href="javascript:void(0)" onclick="getPlayers('1.bmmo')">Refresh</a></p>
+  <p id="online-player-count-1.bmmo">Loading ...</p>
+  <table class="colored" id="online-player-table-1.bmmo">
+    <tr>
+      <th>Name</th>
+      <th>Online since</th>
+      <th>Time of playing</th>
+    </tr>
+  </table>
+  <h3>Online players of 2.<span class="domain-ph">$domain</span></h3>
+  <p><a href="javascript:void(0)" onclick="getPlayers('2.bmmo')">Refresh</a></p>
+  <p id="online-player-count-2.bmmo">Loading ...</p>
+  <table class="colored" id="online-player-table-2.bmmo">
     <tr>
       <th>Name</th>
       <th>Online since</th>
@@ -24,7 +34,7 @@
     <p><cite>Page created by BallanceBug on 2023-04-05.</cite></p>
   </footer>
   <script>
-    const tableInitialHTML = document.getElementById("online-player-table").innerHTML;
+    const tableInitialHTML = document.getElementById("online-player-table-1.bmmo").innerHTML;
     const formatDuration = ms => {
       if (ms < 0) ms = -ms;
       const time = {
@@ -39,6 +49,13 @@
         .map(([key, val]) => `${val} ${key}${val !== 1 ? 's' : ''}`)
         .join(', ');
     };
+    function populatePlaceholders() {
+      let domain = location.host.replace(/^(?:https?:\/\/)?(?:[^\/]+\.)?([^.\/]+\.[^.\/]+).*$/, "$1");
+      document.querySelectorAll(".domain-ph").forEach(el => {
+        el.innerText = domain;
+      });
+    }
+    populatePlaceholders();
     function formatPlayer(player) {
       return `
         <td>${player.name}</td>
@@ -46,13 +63,13 @@
         <td>${formatDuration(1000 * Math.floor(player.login_time - new Date().getTime() / 1000))}</td>
         `;
     }
-    function getPlayers() {
-      fetch("./server-status-2.bmmo.php")
+    function getPlayers(serverName) {
+      fetch(`./server-status-${serverName}.php`)
         .then(res => res.json())
         .then(res => {
           let playerList = Array.from(res), spectatorList = [];
-          playerList.sort((a, b) => a.name > b.name ? 1 : -1);
-          let onlinePlayerTable = document.getElementById("online-player-table");
+          playerList.sort((a, b) => a.name.localeCompare(b.name, "en", {"sensitivity": "base"}));
+          let onlinePlayerTable = document.getElementById(`online-player-table-${serverName}`);
           onlinePlayerTable.innerHTML = tableInitialHTML;
           playerList.forEach(player => {
             if (player.name.startsWith("*")) {
@@ -68,7 +85,7 @@
             tr.innerHTML = formatPlayer(player);
             onlinePlayerTable.appendChild(tr);
           });
-          document.getElementById("online-player-count").innerHTML
+          document.getElementById(`online-player-count-${serverName}`).innerHTML
             = `${playerList.length} client(s) online: ${playerList.length - spectatorList.length} player(s), ${spectatorList.length} spectator(s). <small>(Last updated: <ins>${new Date().toLocaleString([], {hour12: false})}</ins>)</small>`;
         })
         .catch(error => console.log(error));
