@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMMO Reverse Proxy</title>
+  <link rel="stylesheet" href="../styles/common.css">
+  <style>
+    #endpoint {
+      color: maroon;
+    }
+    #radios p {
+      vertical-align: middle;
+    }
+    label {
+      cursor: pointer;
+      padding: 0.2em 0.4em 0.2em 0.05em;
+      transition: all 0.5s;
+    }
+    label:hover {
+      background-color: rgba(0, 0, 0, 0.12);
+    }
+  </style>
+</head>
+<body>
+  <h2>Ballance Massively Multiplayer Online - Reverse Proxy</h2>
+  <p><big>Reverse proxy address: <code>t.bmmo.win:47400</code></big></p>
+  <p><big>Current endpoint: <code id="endpoint"></code></big></p>
+  <p><a href="javascript:void(0)" onclick="loadEndpoint()">Refresh</a></p>
+  <h3>Select a new endpoint</h3>
+  <div id="radios">
+    <p><label><input type="radio" name="server" id="0"> <span></span></label></p>
+    <p><label><input type="radio" name="server" id="1"> <span></span></label></p>
+    <p><label><input type="radio" name="server" id="2"> <span></span></label></p>
+  </div>
+  <footer>
+    <p><a href="../">Return to Home Page</a></p>
+    <p><cite>Page created by BallanceBug on 2024-09-27.</cite></p>
+  </footer>
+  <script>
+    let serverSelection = "";
+    let noEndpointUpdate = false;
+    document.querySelectorAll("label").forEach(label => {
+      let input = label.querySelector("input");
+      label.htmlFor = input.id;
+      input.value = input.id;
+      label.querySelector("span").innerText = `${input.id}.bmmo.win`;
+    });
+    function loadServerSelection() {
+      serverSelection = document.querySelector('input[name="server"]:checked').value;
+    }
+    function loadEndpoint() {
+      fetch("./reverse-proxy-endpoint.php")
+        .then(res => res.text())
+        .then(res => {
+          const ep = document.getElementById("endpoint");
+          ep.innerText = res;
+          noEndpointUpdate = true;
+          document.getElementById(res.replace(".bmmo.win", "")).click();
+          noEndpointUpdate = false;
+          ep.style.fontWeight = "bold";
+          setTimeout(() => {
+            ep.style.fontWeight = "normal";
+          }, 2000);
+        });
+    }
+    function updateEndpoint() {
+      const oldEndpoint = serverSelection;
+      loadServerSelection();
+      if (oldEndpoint == serverSelection)
+        return;
+      if (noEndpointUpdate)
+        return;
+      fetch(`./reverse-proxy-endpoint.php?server=${serverSelection}`)
+        .then(res => res.text())
+        .then(res => {
+          if (res != "OK")
+            alert("Unknown problem updating the endpoint");
+          else
+            loadEndpoint();
+        });
+    }
+    loadServerSelection();
+    loadEndpoint();
+    document.querySelectorAll('input[name="server"]').forEach(input => {
+      input.onchange = updateEndpoint;
+    });
+  </script>
+</body>
+</html>
