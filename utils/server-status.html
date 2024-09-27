@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BMMO Server status</title>
   <link rel="stylesheet" href="../styles/common.css">
+  <script src="../scripts/utils.js"></script>
 </head>
 <body onload="getPlayers('1.bmmo'); getPlayers('2.bmmo')">
   <h2>Ballance Massively Multiplayer Online - Server status</h2>
@@ -35,27 +36,7 @@
   </footer>
   <script>
     const tableInitialHTML = document.getElementById("online-player-table-1.bmmo").innerHTML;
-    const formatDuration = ms => {
-      if (ms < 0) ms = -ms;
-      const time = {
-        day: Math.floor(ms / 86400000),
-        hour: Math.floor(ms / 3600000) % 24,
-        minute: Math.floor(ms / 60000) % 60,
-        second: Math.floor(ms / 1000) % 60,
-        millisecond: Math.floor(ms) % 1000
-      };
-      return Object.entries(time)
-        .filter(val => val[1] !== 0)
-        .map(([key, val]) => `${val} ${key}${val !== 1 ? 's' : ''}`)
-        .join(', ');
-    };
-    function populatePlaceholders() {
-      let domain = location.host.replace(/^(?:https?:\/\/)?(?:[^\/]+\.)?([^.\/]+\.[^.\/]+).*$/, "$1");
-      document.querySelectorAll(".domain-ph").forEach(el => {
-        el.innerText = domain;
-      });
-    }
-    populatePlaceholders();
+    populateDomainPlaceholders();
     function formatPlayer(player) {
       return `
         <td>${player.name}</td>

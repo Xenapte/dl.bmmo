@@ -22,10 +22,11 @@
       background-color: rgba(0, 0, 0, 0.12);
     }
   </style>
+  <script src="../scripts/utils.js"></script>
 </head>
 <body>
   <h2>Ballance Massively Multiplayer Online - Reverse Proxy</h2>
-  <p><big>Reverse proxy address: <code>t.bmmo.win:47400</code></big></p>
+  <p><big>Reverse proxy address: <code>t.<span class="domain-ph">$domain</span>:47400</code></big></p>
   <p><big>Current endpoint: <code id="endpoint"></code></big></p>
   <p><a href="javascript:void(0)" onclick="loadEndpoint()">Refresh</a></p>
   <h3>Select a new endpoint</h3>
@@ -45,7 +46,7 @@
       let input = label.querySelector("input");
       label.htmlFor = input.id;
       input.value = input.id;
-      label.querySelector("span").innerText = `${input.id}.bmmo.win`;
+      label.querySelector("span").innerText = `${input.id}.${rootDomain}`;
     });
     function loadServerSelection() {
       serverSelection = document.querySelector('input[name="server"]:checked').value;
@@ -57,7 +58,7 @@
           const ep = document.getElementById("endpoint");
           ep.innerText = res;
           noEndpointUpdate = true;
-          document.getElementById(res.replace(".bmmo.win", "")).click();
+          document.getElementById(res.replace(`.${rootDomain}`, "")).click();
           noEndpointUpdate = false;
           ep.style.fontWeight = "bold";
           setTimeout(() => {
@@ -81,6 +82,7 @@
             loadEndpoint();
         });
     }
+    populateDomainPlaceholders();
     loadServerSelection();
     loadEndpoint();
     document.querySelectorAll('input[name="server"]').forEach(input => {
