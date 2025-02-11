@@ -48,7 +48,7 @@
   <p class="smaller">Note: only changes related to actual mod/server behaviors (i.e., excluding code refactors) are documented here.</p>
   <div id="changelogs"></div>
   <footer>
-    <p><cite>Website (<a href="https://github.com/Xenapte/dl.bmmo">source code</a>) created by BallanceBug on 2022-07-28. Last updated on 2023-10-04.</cite></p>
+    <p><cite>Website (<a href="https://github.com/Xenapte/dl.bmmo">source code</a>) created by BallanceBug on 2022-07-28. Design last updated on 2025-02-11.</cite></p>
   </footer>
   <script>
     function init() {
@@ -60,17 +60,34 @@
       fetch("changelogs.json")
         .then(res => res.json())
         .then(data => {
-          let topList = document.createElement("ul");
-          Array.from(data).forEach(e => {
+          let topList = document.createElement("ul"), currentList = topList;
+          let dataCounter = 0;
+          let changeLogs = document.getElementById("changelogs")
+          data.forEach(e => {
+            dataCounter++;
+            if (dataCounter == 5) {
+              currentList = document.createElement("ul");
+              currentList.style = "display: none";
+            }
             let item = document.createElement("li");
             let dataStr = "";
-            Array.from(e.content).forEach(line => {
+            e.content.forEach(line => {
               dataStr += `<li>${line}</li>`;
             });
             item.innerHTML = `<p>${e.version} (${e.time})</p><ul>${dataStr}</ul>`;
-            topList.appendChild(item);
+            currentList.appendChild(item);
           });
-          document.getElementById("changelogs").appendChild(topList);
+          changeLogs.appendChild(topList);
+          if (currentList != topList) {
+            let showMore = document.createElement("ul");
+            showMore.innerHTML = "<li><a href='javascript:void(0)'>Show more</a></li>";
+            showMore.addEventListener("click", () => {
+              currentList.style = "display: block";
+              showMore.style = "display: none";
+            });
+            changeLogs.appendChild(showMore);
+            changeLogs.appendChild(currentList);
+          }
         });
       document.querySelectorAll(".hint").forEach(el => {
         el.addEventListener("click", (event) => {
