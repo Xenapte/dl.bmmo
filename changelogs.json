@@ -1,5 +1,19 @@
 [
   {
+    "version": "3.6.0-beta4",
+    "time": "2025-08-02",
+    "content": [
+      "Fix: sound streams not playing on BML+ versions at or above 0.3.5."
+    ]
+  },
+  {
+    "version": "3.6.0-beta3",
+    "time": "2025-02-17",
+    "content": [
+      "Fix: better sector time precision on the sidebar player list."
+    ]
+  },
+  {
     "version": "3.6.0-beta2",
     "time": "2025-01-18",
     "content": [
