@@ -1,5 +1,11 @@
 Header add Access-Control-Allow-Origin "https://ballance.jxpxxzj.cn"
 
+Options -Indexes
+
+# make all 403s display 404
+ErrorDocument 403 /utils/404.php
+ErrorDocument 404 /utils/404.php
+
 <IfModule mod_rewrite.c>
   RewriteEngine On 
   RewriteCond %{REQUEST_FILENAME} !-d
