@@ -1,5 +1,19 @@
 [
   {
+    "version": "3.6.0-beta6",
+    "time": "2025-08-14",
+    "content": [
+      "Fix (unverified): more possible deadlock issues."
+    ]
+  },
+  {
+    "version": "3.6.0-beta5",
+    "time": "2025-08-10",
+    "content": [
+      "Fix (unverified): potential deadlock issues."
+    ]
+  },
+  {
     "version": "3.6.0-beta4",
     "time": "2025-08-02",
     "content": [
