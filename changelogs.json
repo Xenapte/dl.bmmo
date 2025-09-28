@@ -1,5 +1,31 @@
 [
   {
+    "version": "3.6.3-beta9",
+    "time": "2025-09-24",
+    "content": [
+      "Fix: deadlock problems are believed to have been fixed (mostly); please report further problems if you find them to still exist.",
+      "Change: multiline announcements are now displayed as multiple lines (as they should have been) in the chat console on BMLPlus v0.3.9 and above.",
+      "Change: popup message boxes now block user inputs."
+    ]
+  },
+  {
+    "version": "3.6.2-beta8",
+    "time": "2025-08-28",
+    "content": [
+      "Fix: .CMO custom map names are now parsed correctly.",
+      "Change: ingame messages now support colors on BMLPlus v0.3.9 and above."
+    ]
+  },
+  {
+    "version": "3.6.1-beta7",
+    "time": "2025-08-19",
+    "content": [
+      "New: the server now sends its local (real-world) time periodically to provide references for clients; its value can be viewed either with <code>/mmo realtime</code>, or through the bottom-right text label in spectator mode.",
+      "Change: minimum length of nicknames is lowered from 3 to 2 characters.",
+      "Change: <code>/mmo rankreset</code> is re-adapted to <code>/mmo forcenextrestart</code>, which when executed clears all maps rankings and force-restarts all players after the next <i>Go!</i> signal, regardless of which map they are in; this is potentially useful for \"marathon\"-style matches. Forced restarts are marked with an <code>*</code> after the map name ingame."
+    ]
+  },
+  {
     "version": "3.6.0-beta6",
     "time": "2025-08-14",
     "content": [

@@ -7,9 +7,15 @@ html {
   overflow: auto;
   padding: 20px 16px;
 }
-body {max-width: 880px; margin: 0 auto 2em; font-family: Roboto, "Noto Sans", Arial, sans-serif}
+body {
+  max-width: 880px;
+  margin: 0 auto;
+  padding-bottom: 1em;
+  font-family: Roboto, "Noto Sans", Arial, sans-serif;
+  background-color: transparent;
+}
 
-h2, h3, h4, p, ul, li {margin-top: 0.64em; margin-bottom: 0.48em; line-height: 140%}
+h2, h3, h4, p, ul, li {margin-top: 0.64em; margin-bottom: 0.48em; line-height: 150%}
 h3 {border-bottom: 2px solid rgba(32, 32, 32, 0.12); padding: 2px; margin-left: -2px; margin-right: 5%}
 
 code {
@@ -51,9 +57,10 @@ a:hover {text-decoration-style: solid}
 .hint {color: rgba(0, 0, 0, 0.7); text-decoration: dotted underline; cursor: help}
 
 footer {
-  margin-top: 1em;
+  margin: 1em 5% 0 0;
   padding: 0.2em 2px 0;
   border-top: 2px solid rgba(32, 32, 32, 0.16);
-  font-size: 96%;
-  margin-right: 5%;
+  font-size: 84%;
+  color: rgba(0, 0, 0, 0.7);
+  letter-spacing: 0.01rem;
 }
